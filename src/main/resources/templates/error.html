@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/base :: html}">
+<body>
+<div th:fragment="content">
+  <div class="text-center py-5">
+    <h1 class="text-danger"> Error</h1>
+    <p class="lead" th:text="${error} ?: 'Something went wrong!'"></p>
+    <a href="/books" class="btn btn-primary">Back to Books</a>
+  </div>
+</div>
+</body>
+</html>

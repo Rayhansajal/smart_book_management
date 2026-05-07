@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/base :: html}">
+<body>
+<div th:fragment="content">
+  <h2>Edit Book</h2>
+
+  <div class="card shadow">
+    <div class="card-body">
+      <form th:action="@{/books/edit/{id}(id=${book.id})}" method="post" th:object="${book}">
+        <!-- Same fields as add.html -->
+        <div class="mb-3">
+          <label class="form-label">Title <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" th:field="*{title}" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Author <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" th:field="*{author}" required>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">ISBN</label>
+            <input type="text" class="form-control" th:field="*{isbn}">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Genre</label>
+            <input type="text" class="form-control" th:field="*{genre}">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Total Quantity</label>
+            <input type="number" class="form-control" th:field="*{totalQuantity}" min="1">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <textarea class="form-control" rows="4" th:field="*{description}"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Book</button>
+        <a href="/books" class="btn btn-secondary">Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

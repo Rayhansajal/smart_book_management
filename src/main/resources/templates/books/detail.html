@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/base :: html}">
+<body>
+<div th:fragment="content">
+  <h2>Book Details</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <h4 th:text="${book.title}"></h4>
+      <p><strong>Author:</strong> <span th:text="${book.author}"></span></p>
+      <p><strong>ISBN:</strong> <span th:text="${book.isbn}"></span></p>
+      <p><strong>Genre:</strong> <span th:text="${book.genre}"></span></p>
+      <p><strong>Available:</strong>
+        <span th:text="${book.availableQuantity} + ' / ' + ${book.totalQuantity}"></span>
+      </p>
+      <p><strong>Description:</strong></p>
+      <p th:text="${book.description}"></p>
+
+      <a th:href="@{/books/edit/{id}(id=${book.id})}" class="btn btn-warning">Edit</a>
+      <a href="/books" class="btn btn-secondary">Back to List</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
